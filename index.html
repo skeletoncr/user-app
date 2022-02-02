@@ -1,0 +1,71 @@
+<!doctype html>
+<html ng-app="usersApp">
+
+<head>
+  <title>My AngularJS App</title>
+  <!-- Bootstrap CSS -->
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-animate.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+  $(function() {
+      $('#btnAdd').click(function() {
+          $('#tbl').toggle('slow');
+      });
+  });
+  </script>
+  <style>
+    .content{
+      margin-left: 20em;
+      margin-right: auto;
+    }
+    a.button5{
+      display:inline-block;
+      padding:0.46em 1.6em ;
+      border:0.1em solid #000000;
+      margin:0 0.2em 0.2em 0;
+      border-radius:0.12em;
+      box-sizing: border-box;
+      text-decoration:none;
+      font-family:'Roboto',sans-serif;
+      font-weight:300;
+      color:#fff;
+      text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+      background-color:#FFFFFF;
+      text-align:center;
+      transition: all 0.15s;
+    }
+
+  </style>
+</head>
+<body >
+  <button id="btnAdd" class="button5" onclick="toggle();" >Toggle User Data</button>
+<div class="content">
+<!-- your markup here -->
+  
+  <br>
+  <div ng-controller="jsonCtrl">     
+    <table id="tbl" class="table table-striped" style="display: block;">
+        <tr>
+          <th>id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Comapny</th>
+        </tr>
+        <tr ng-repeat="resource in employees">
+            <td>{{ resource.id }}</td>
+            <td>{{ resource.name }}</td>
+            <td>{{ resource.email }}</td>
+            <td>{{ resource.company.name }}</td>
+        </tr>    
+    </table>
+  </div>
+</div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
